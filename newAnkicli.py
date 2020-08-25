@@ -1,12 +1,23 @@
 import csv
 import os
 from datetime import datetime
+from pathlib import Path
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
 # file name generation
 
+filename = ""
+
+name_validation_gate = 0 
+
 def nameTheFile():
+
+    global filename
+    global name_validation_gate 
+
+    filename = ""
+
     today_date = datetime.today().strftime('%Y-%m-%d')
 
     filename = input("insert the file name: ")
@@ -19,22 +30,20 @@ def nameTheFile():
     if os.path.exists(filename + ".csv"):
         print("file name in use, please choose diferent file name")
         return False
-    else:
-    
-        print(filename)
-        return filename
+    else:   
+        name_validation_gate = 1
+        return True
 
 
+while name_validation_gate == 0:
+    nameTheFile()
+        
 
 # filename validation
-while True:
-    if nameTheFile():
-        break
-    else:
-        pass
+print(filename)
 
 
-tag = input("insert tag: ")
+tag = input("insert tag name (or press enter for empty): ")
 
 print("to exit the script at any time please press . and enter")
 
@@ -62,7 +71,8 @@ while True:
 
     current_row = [front_side,back_side,tag]
 
-    table = open('/home/zubrzysta/Sync/school/output.csv', 'a',encoding="utf-8")
+    table = open(filename + ".csv", 'a',encoding="utf-8")
+    print("file open")
     tablewriter = csv.writer(table, delimiter='|')
     tablewriter.writerow(current_row)
     table.close()
