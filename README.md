@@ -2,7 +2,9 @@
 
 Anki Rapid Cards is a Python script that will help you with making Anki cards quickly.
 
-It works by taking your input and turing it into a .csv file that you can import straight into Anki.
+It works by taking your input and turning it into a .csv file that you can import straight into Anki.
+
+
 
 ## Features
 
@@ -48,7 +50,7 @@ if you are done simply press `.` followed by `enter`.
 
 
 ### Made an error while making a card?
-Simply open the .csv file after you're done and fix the erros in one batch before importing the file into Anki.
+Simply open the .csv file after you're done and fix the errors in one batch before importing the file into Anki.
 
 
 ### Mobile
